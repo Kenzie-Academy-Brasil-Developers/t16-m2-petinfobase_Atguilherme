@@ -1,0 +1,158 @@
+body{
+    flex-direction: column;
+    background-color: var(--grey9);
+}
+
+.generalHeader__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--grey9);
+    width: 100%;
+    min-width: 320px;
+    
+
+}
+
+.header__container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--grey9);
+    width: 95%;
+    height: 44px;
+    
+    border: 1px solid blue;
+
+}
+
+.publications__container{
+    width: 95%;
+    border: 1px solid red;
+}
+
+.user__publication{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 170px;
+    height: 41px;
+    
+}
+
+.user__publication > button{
+    width: 120px;
+    height: 41px;
+    border-radius: 4px;
+}
+
+.general__container{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--grey9);
+    width: 100%;
+    min-width: 320px;
+    
+
+}
+
+.logo__title{
+    font-size: 1.25em;
+    font-weight: 500;
+    color: var(--grey1);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.feed__bar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 4rem;
+    background-color: var(--grey8);
+    color: var(--grey1);
+}
+
+.publication__card{
+    flex-direction: column;
+}
+
+.card__header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid aquamarine;
+}
+
+.card__user{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.user__img{
+    width: 2rem;
+    height: 2rem;
+}
+
+.user__name, .card__data{
+    font-size: .825rem;
+    font-weight: 500;
+}
+
+.span__bar{
+    font-size: 20px;
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+.card__data{
+    color: var(--grey4);
+}
+
+.edit__btn, .delete__btn{
+    height: 2rem;
+    Padding: 0 8px;
+    border-radius: 4px;
+    margin: 0 2.5px;
+    cursor: pointer;
+}
+
+.edit__btn:hover{
+
+}
+
+.delete__btn:hover{
+
+}
+
+
+/* ************************************************************* */
+@media(min-width: 769px){
+
+    body{
+        height: 100vh;
+    }
+    
+    .header__container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background-color: var(--grey9);
+        width: 80%;
+        height: 44px;
+    }
+
+    .publications__container{
+        width: 80%;
+    }
+}
