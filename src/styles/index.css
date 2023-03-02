@@ -164,11 +164,11 @@
 
     font-size: 2rem;
     font-weight: 600;
-    color: var(--brand1);
+    color: var(--grey1);
 
 }
 
-.section__text > span {
+.section__text > span, .register__h2 {
     color: var(--brand1);
 }
 

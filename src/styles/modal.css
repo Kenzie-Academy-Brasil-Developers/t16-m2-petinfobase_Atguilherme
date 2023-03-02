@@ -1,0 +1,110 @@
+dialog{
+    border: none;
+    width: 60%;
+    height: 70%;
+}
+
+.modal__container{
+    display: flex;
+    flex-direction: column;
+}
+
+.modal__header{
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 2rem;
+    
+}
+
+.modalHeader__title{
+
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--grey1);
+
+}
+
+.modalClose__btn{
+
+    Width: 38px;
+    Height: 32px;
+    border-radius: 4px;
+    padding: 4px 14px;
+    background-color: var(--grey6);
+    cursor: pointer;
+
+}
+
+.label__title, .label__content{
+    
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--grey1);
+    margin-top: 1rem;
+
+}
+
+.post__title{
+    height: 2rem;
+    margin-top: 0.625rem;
+    background-color: var(--grey7);
+    border-color: var(--grey6);
+}
+
+.post__content{
+    height: 273px;
+    margin-top: 0.625rem;
+    background-color: var(--grey7);
+    border-color: var(--grey6);
+    resize: none;
+}
+
+.container__buttons{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    gap: 1rem;
+}
+
+.btn__cancel, .btn__publish, .btn__save{
+
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 1s;
+
+}
+
+.btn__cancel{
+
+    width: 105px;
+    height: 38px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--grey5);
+
+}
+
+.btn__cancel:hover{
+    color: var(--grey5);
+}
+
+.btn__publish, .btn__save{
+    width: 101px;
+    height: 38px;
+    background-color: var(--brand1);
+    color: var(--grey9);
+}
+
+.btn__save{
+
+    width: 162px;
+
+}
+
+
+.btn__save:hover{}

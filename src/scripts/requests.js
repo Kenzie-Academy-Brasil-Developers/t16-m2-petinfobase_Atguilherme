@@ -3,12 +3,18 @@ import { toast } from './toast.js'
 export const green = '#087F5B'
 export const red = '#DB3C58'
 
-const token = localStorage.getItem("@petinfo:token");
-const baseUrl = "http://localhost:3333";
+const token = JSON.parse(localStorage.getItem("@petinfo:token")) || ""
+
+const baseUrl = "http://localhost:3333"
 const requestHeaders = {
   "Content-Type": "application/json",
-  Authorization: `Bearer ${token}`,
-};
+  Authorization: `Bearer ${token}`
+}
+
+const postBody = {
+  title: "teste",
+  content: "teste"
+}
 
 export async function loginRequest(loginBody) {
   const token = await fetch(`${baseUrl}/login`, {
@@ -19,33 +25,171 @@ export async function loginRequest(loginBody) {
     if (response.ok) {
 
       const responseJson = response.json().then(({ token }) => {
-        localStorage.setItem("@petinfo:token", JSON.stringify(token));
+        localStorage.setItem("@petinfo:token", JSON.stringify(token))
         
         window.location.replace('/src/pages/home.html')
-        return token;
-      });
+        return token
+      })
 
-      return responseJson;
+      return responseJson
     } else {
-      response.json().then((resError) => toast(resError, red));
+      response.json().then((resError) => toast(resError, red))
     }
-  });
+  })
 
-  return token;
+  return token
 }
 
 export async function registerRequest(registerBody) {
+  
   const newUser = await fetch(`${baseUrl}/users/create`, {
     method: "POST",
     headers: requestHeaders,
     body: JSON.stringify(registerBody),
   }).then((response) => {
     if (response.ok) {
-      return response.json();
+      response.json().then((resJson) => {
+        //toast('Usuário cadastrado com sucesso',green)
+        return resJson
+      })
     } else {
-      response.json().then((resError) => console.log(resError));
+      response.json().then((resError) => {
+        toast(resError.message, red)
+        })
     }
-  });
+  })
 
-  return newUser;
+  return newUser
+}
+
+export async function getAllPosts() {
+  
+  const posts = await fetch(`${baseUrl}/posts`, {
+    method: "GET",
+    headers: requestHeaders,
+  }).then((response) => {
+    if (response.ok) {
+
+      const responseJson =  response.json().then( (resJson) => {
+        
+        return resJson
+      })
+      
+      return responseJson
+      
+    } else {
+      response.json().then((resError) => {
+        toast(resError.message, red)
+        })
+    }
+    
+  })
+  
+  return posts
+}
+
+export async function newPostRequest(postBody) {
+  
+  const newPost = await fetch(`${baseUrl}/posts/create`, {
+    method: "POST",
+    headers: requestHeaders,
+    body: JSON.stringify(postBody),
+  }).then((response) => {
+    if (response.ok) {
+      toast('Post cadastrado com sucesso',green)
+      return response.json()
+    } else {
+      response.json().then((resError) => {
+        toast(resError.message, red)
+        })
+    }
+  })
+
+  return newPost
+}
+
+export async function getUserProfile() {
+  
+  const user = await fetch(`${baseUrl}/users/profile`, {
+    method: "GET",
+    headers: requestHeaders,
+  }).then((response) => {
+    if (response.ok) {
+      const responseJson =  response.json().then( (resJson) => {
+        
+        return resJson
+      })
+      
+      return responseJson
+
+    } else {
+
+      response.json().then((resError) => {
+
+        toast(resError.message, red)
+
+        })
+    }
+
+  })
+
+  return user
+
+}
+
+export async function updatePost(postId, postBody) {
+
+  const post = await fetch(`${baseUrl}/posts/${postId}`, {
+    method: "PATCH",
+    headers: requestHeaders,
+    body: JSON.stringify(postBody),
+  }).then((response) => {
+    if (response.ok) {
+
+      alert("post atualizado com sucesso")
+
+      return response.json()
+
+    } else {
+
+      response.json().then(({ message }) => {
+
+        alert(message)
+
+      })
+
+    }
+    
+  })
+
+  return post
+
+}
+
+export async function deletePost(postId) {
+
+  const post = await fetch(`${baseUrl}/posts/${postId}`, {
+    method: "DELETE",
+    headers: requestHeaders,
+  }).then((response) => {
+    if (response.ok) {
+  
+      toast(message, green)
+
+      return response.json()
+
+    } else {
+
+      response.json().then(({ message }) => {
+
+        toast(message, red)
+
+      })
+
+    }
+
+  })
+
+  return post
+
 }

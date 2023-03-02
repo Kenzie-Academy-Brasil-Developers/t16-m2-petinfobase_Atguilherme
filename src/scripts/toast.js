@@ -1,5 +1,5 @@
 export const toast = (message, color) => {
-    const body = document.querySelector('body')
+    const sectionOpening = document.querySelector('.section__container')
     const container = document.createElement('div')
     const text = document.createElement('p')
   
@@ -10,13 +10,47 @@ export const toast = (message, color) => {
   
     container.appendChild(text)
   
-    body.appendChild(container)
+    sectionOpening.appendChild(container)
   
     setTimeout(() => {
-      container.classList.add('toast__remove')
-    }, 3000)
+    container.classList.add('toast__remove')
+  }, 30000)
+
   
     setTimeout(() => {
-      body.removeChild(container)
-    }, 4990);
+    sectionOpening.removeChild(container)
+  }, 49900)
+
   }
+
+
+export const toastLogout = (username, color) => {
+
+  const body = document.querySelector('body')
+  const container = document.createElement('div')
+  const textLogout = document.createElement('p')
+  textLogout.classList.add('toastLogout__text')
+  const btnLogout = document.createElement('a')
+  btnLogout.classList.add('btn__logout')
+  
+  container.classList.add('toastLogout__container', 'toast__add')
+  container.style.backgroundColor = color
+
+  textLogout.innerText = `@${username}`
+  btnLogout.innerText = 'Sair'
+
+  container.appendChild(textLogout)
+  container.appendChild(btnLogout)
+
+  body.appendChild(container)
+
+  setTimeout(() => {
+    container.classList.add('toast__remove')
+  }, 3000)
+
+  setTimeout(() => {
+    body.removeChild(container)
+  }, 2990);
+
+}
+

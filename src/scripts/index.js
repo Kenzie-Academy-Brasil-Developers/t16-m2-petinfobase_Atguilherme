@@ -1,7 +1,16 @@
 import { loginRequest, red } from "./requests.js"
 import { toast } from "./toast.js"
 
-function handleRegister(){
+
+function authentication() {
+  const token = localStorage.getItem('@petinfo:token')
+
+  if(token) {
+    window.location.replace('./src/pages/home.html')
+  }
+}
+
+function goToRegister(){
     const btnRegister = document.querySelector(".register__back")  
     btnRegister.addEventListener('click', (e)=>{
         e.preventDefault()
@@ -9,8 +18,8 @@ function handleRegister(){
     })
 }
 
-
 function handleLogin() {
+
   const inputs = document.querySelectorAll(".form__input")
   const button = document.querySelector(".register__btn")
   const loginBody = {}
@@ -21,24 +30,29 @@ function handleLogin() {
 
     inputs.forEach(({ name, value }) => {
       if (value === "") {
+
         count++
+
       }
 
       loginBody[name] = value
+
     })
 
     if (count !== 0) {
+
       toast('por favor preencha os campos e tente novamente', red)
       return 
-    } else {
-      const token = await loginRequest(loginBody)
 
-      console.log(token)
+    } else {
+
+      const token = await loginRequest(loginBody)
       return token
+
     }
   })
 }
 
-handleRegister()
+goToRegister()
 handleLogin()
-
+authentication()

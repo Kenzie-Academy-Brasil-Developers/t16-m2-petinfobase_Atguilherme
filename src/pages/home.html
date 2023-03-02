@@ -7,6 +7,8 @@
     <title>Pet Info</title>
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/globalStyles.css">
+    <link rel="stylesheet" href="../styles/toast.css">
+    <link rel="stylesheet" href="../styles/modal.css">
     <link rel="stylesheet" href="../styles/home.css">
 </head>
 <body>
@@ -16,9 +18,9 @@
         <header class="header__container">
     
             <div class="logo__title">Petinfo</div>
-            <div class="user__publication">
-                <button>Criar publicação</button>
-                <img src="../assets/Bertoldo.svg" alt="imagem do usuário">
+            <div class="user__data">
+                <button class="create__post">Criar publicação</button>
+                <img class="header__img" src="../assets/Bertoldo.svg" alt="imagem do usuário">
             </div>
     
         </header>
@@ -28,7 +30,7 @@
     <div class="feed__bar">Feed</div>
 
     <div class="general__container">
-        <section class="publications__container">
+        <section class="section__container">
 
             <div class="publication__card">
 
@@ -45,7 +47,7 @@
                 </div>
                 <div class="card__body">
                     <h1 class="cardBody__title">Você sabia que os pets também podem doar sangue?</h1>
-                    <p card__paragraph>Doar sangue não é só um ato de amor ao próximo, envolve muito mais que isso. Além da empatia, o doador traz esperança e uma...</p>
+                    <p class="card__paragraph">Doar sangue não é só um ato de amor ao próximo, envolve muito mais que isso. Além da empatia, o doador traz esperança e uma...</p>
 
                     <a href="">Acessar publicação</a>
                 </div>
@@ -55,8 +57,7 @@
 
     </div>
 
-
-    <dialog class="index__dialog"></dialog>
+    <dialog class="newPost__dialog"></dialog>
     <script type="module" src="../scripts/home.js"></script>
 </body>
 </html>

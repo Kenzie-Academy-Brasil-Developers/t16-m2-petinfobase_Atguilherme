@@ -38,7 +38,7 @@ body, label, h1, h2, form, input {
 }
 
 body{
-  background-color: var(--grey1);
+  background-color: var(--grey9);
   display: flex;
   align-items: center;
 }

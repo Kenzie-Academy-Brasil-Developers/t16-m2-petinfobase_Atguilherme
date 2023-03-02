@@ -1,25 +1,69 @@
 .toast__container {
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
   
-    padding: 2rem;
+  position: absolute;
+  top: 20rem;
+  right: 2rem;
+  align-self: center;
+  justify-self: center;
+  padding: 2rem;
+  border-radius: 4px;
+  animation: toastIn 2s linear;
+  z-index:0;
   
-    animation: toastIn 2s linear;
+}
   
-    z-index:0;
-    border-radius: 4px;
-  }
+.toast__container > p {
+
+  color: var(--grey-100);
   
-  .toast__container > p {
-    color: var(--grey-100);
-  }
+}
   
-  .toast__add {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.toast__add {
+
+  opacity: 1;
+  transform: translateX(0);
+
+}
   
-  .toast__remove {
-    animation: toastOut 2s linear;
-  }
+.toast__remove {
+
+  animation: toastOut 2s linear;
+
+}
+
+.toastLogout__container {
+
+  position: absolute;
+  top: 2.7rem;
+  right: 6.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--grey7);
+  padding: .5rem;
+  animation: toastIn 2s linear;
+  z-index:0;
+  border-radius: 4px;
+  
+}
+
+.btn__logout{
+
+  cursor: pointer;
+  padding: .07rem 2.7rem;
+  
+}
+
+.btn__logout:hover{
+
+  font-weight: 600;
+  background-color: var(--grey-200);
+
+}
+
+.toastLogout__text{
+
+  font-weight: 600;
+  
+}
