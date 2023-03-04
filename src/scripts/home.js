@@ -181,7 +181,8 @@ function handleNewPost() {
 
         if (count !== 0) {
 
-            return alert("Por favor preencha os campos necessários")
+            toast("Por favor preencha os campos necessários", red)
+            return 
 
         } else {
 

@@ -1,6 +1,10 @@
 import { registerRequest } from "./requests.js" 
 import { toast } from './toast.js'
 
+export const green = '#087F5B'
+export const red = '#DB3C58'
+
+
 function authentication() {
     const token = localStorage.getItem('@petinfo:token')
 
@@ -35,7 +39,9 @@ function handleRegister() {
       })
   
       if(count !== 0) {
-      return alert('por favor preencha todos os campos necessários para realizar o cadastro')
+        toast('por favor preencha todos os campos necessários para realizar o cadastro', red)
+        return 
+      //alert('por favor preencha todos os campos necessários para realizar o cadastro')
       } else {
         const newUser = await registerRequest(registerBody)
   
@@ -43,7 +49,7 @@ function handleRegister() {
         //     window.location.replace('../../index.html')
         // }, 2000)
             window.location.replace('../../index.html')
-        }, 200000)
+        }, 2000)
 
         
       }

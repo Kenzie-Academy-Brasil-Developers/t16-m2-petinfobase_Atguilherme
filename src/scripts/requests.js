@@ -11,11 +11,6 @@ const requestHeaders = {
   Authorization: `Bearer ${token}`
 }
 
-const postBody = {
-  title: "teste",
-  content: "teste"
-}
-
 export async function loginRequest(loginBody) {
   const token = await fetch(`${baseUrl}/login`, {
     method: "POST",
@@ -29,15 +24,20 @@ export async function loginRequest(loginBody) {
         
         window.location.replace('/src/pages/home.html')
         return token
+
       })
 
       return responseJson
+
     } else {
-      response.json().then((resError) => toast(resError, red))
+
+      response.json().then((resError) => toast(resError.message, red))
+
     }
   })
 
   return token
+
 }
 
 export async function registerRequest(registerBody) {
@@ -47,19 +47,31 @@ export async function registerRequest(registerBody) {
     headers: requestHeaders,
     body: JSON.stringify(registerBody),
   }).then((response) => {
+
     if (response.ok) {
+
       response.json().then((resJson) => {
-        //toast('Usuário cadastrado com sucesso',green)
+
+        toast('Usuário cadastrado com sucesso', green)
+
         return resJson
+
       })
+
     } else {
+
       response.json().then((resError) => {
+
         toast(resError.message, red)
+
         })
+
     }
+
   })
 
   return newUser
+
 }
 
 export async function getAllPosts() {
@@ -68,24 +80,32 @@ export async function getAllPosts() {
     method: "GET",
     headers: requestHeaders,
   }).then((response) => {
+
     if (response.ok) {
+
 
       const responseJson =  response.json().then( (resJson) => {
         
         return resJson
+
       })
       
       return responseJson
       
     } else {
+
       response.json().then((resError) => {
+
         toast(resError.message, red)
+
         })
+
     }
     
   })
   
   return posts
+
 }
 
 export async function newPostRequest(postBody) {
@@ -95,17 +115,27 @@ export async function newPostRequest(postBody) {
     headers: requestHeaders,
     body: JSON.stringify(postBody),
   }).then((response) => {
+
     if (response.ok) {
-      toast('Post cadastrado com sucesso',green)
+
+      toast('Post cadastrado com sucesso', green)
+
       return response.json()
+
     } else {
+
       response.json().then((resError) => {
+
         toast(resError.message, red)
-        })
+
+      })
+
     }
+
   })
 
   return newPost
+
 }
 
 export async function getUserProfile() {
@@ -114,10 +144,13 @@ export async function getUserProfile() {
     method: "GET",
     headers: requestHeaders,
   }).then((response) => {
+
     if (response.ok) {
+
       const responseJson =  response.json().then( (resJson) => {
         
         return resJson
+
       })
       
       return responseJson
@@ -128,7 +161,8 @@ export async function getUserProfile() {
 
         toast(resError.message, red)
 
-        })
+      })
+
     }
 
   })
@@ -144,17 +178,18 @@ export async function updatePost(postId, postBody) {
     headers: requestHeaders,
     body: JSON.stringify(postBody),
   }).then((response) => {
+
     if (response.ok) {
 
-      alert("post atualizado com sucesso")
+      toast("post atualizado com sucesso", green)
 
       return response.json()
 
     } else {
 
-      response.json().then(({ message }) => {
+      response.json().then((resError) => {
 
-        alert(message)
+        toast(resError.message, red)
 
       })
 
@@ -172,17 +207,18 @@ export async function deletePost(postId) {
     method: "DELETE",
     headers: requestHeaders,
   }).then((response) => {
+
     if (response.ok) {
   
-      toast(message, green)
+      toast('Post deletado com sucesso', green)
 
       return response.json()
 
     } else {
 
-      response.json().then(({ message }) => {
+      response.json().then((resError) => {
 
-        toast(message, red)
+        toast(resError.message, red)
 
       })
 

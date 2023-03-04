@@ -1,8 +1,8 @@
 .toast__container {
   
   position: absolute;
-  top: 20rem;
-  right: 2rem;
+  top: 75vh;
+  right: 10vw;
   align-self: center;
   justify-self: center;
   padding: 2rem;

@@ -1,5 +1,5 @@
 export const toast = (message, color) => {
-    const sectionOpening = document.querySelector('.section__container')
+    const body = document.querySelector('body')
     const container = document.createElement('div')
     const text = document.createElement('p')
   
@@ -10,16 +10,16 @@ export const toast = (message, color) => {
   
     container.appendChild(text)
   
-    sectionOpening.appendChild(container)
+    body.appendChild(container)
   
     setTimeout(() => {
     container.classList.add('toast__remove')
-  }, 30000)
+  }, 3000)
 
   
     setTimeout(() => {
-    sectionOpening.removeChild(container)
-  }, 49900)
+    body.removeChild(container)
+  }, 4990)
 
   }
 
