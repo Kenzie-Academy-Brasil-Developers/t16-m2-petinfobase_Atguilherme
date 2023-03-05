@@ -4,6 +4,16 @@ export function renderModal(newPost, array = []){
     modalController.innerHTML = ''
     modalController.appendChild(createModal(newPost, array))
     modalController.showModal()
+    const btnCancel = document.querySelector(".btn__postCancel")
+
+    btnCancel.addEventListener('click', (e) => {
+
+        e.preventDefault()
+        
+        modalController.close()
+
+    })
+    
     closeModal()
 
 }
@@ -69,7 +79,7 @@ function createModal(newPost, array){
         
     }
     
-    btnCancel.classList.add('btn__cancel')
+    btnCancel.classList.add('btn__postCancel')
     modalCloseBtn.innerText = 'X'
     labelTitle.innerText = 'Título do post'
     postTitle.placeholder = 'Digite o título do post'

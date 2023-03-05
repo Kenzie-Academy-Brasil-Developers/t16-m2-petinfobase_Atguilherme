@@ -1,4 +1,4 @@
-import { toast } from './toast.js'
+import { toast, toastAccountSucess } from './toast.js'
 
 export const green = '#087F5B'
 export const red = '#DB3C58'
@@ -31,7 +31,18 @@ export async function loginRequest(loginBody) {
 
     } else {
 
-      response.json().then((resError) => toast(resError.message, red))
+      response.json().then((resError) => {
+      
+      if(resError.message == 'A senha está incorreta'){
+
+        const passwordText = document.querySelector('.password__text')
+        const passwordInput = document.querySelector('#password__input')
+        passwordText.style.color = '#C73650';
+        passwordInput.classList.add('redBorder')
+        
+      }
+      
+      })
 
     }
   })
@@ -51,8 +62,11 @@ export async function registerRequest(registerBody) {
     if (response.ok) {
 
       response.json().then((resJson) => {
-
-        toast('Usuário cadastrado com sucesso', green)
+        
+        toastAccountSucess()
+        setTimeout(() => {
+          console.log('ok')
+        }, 30000)
 
         return resJson
 

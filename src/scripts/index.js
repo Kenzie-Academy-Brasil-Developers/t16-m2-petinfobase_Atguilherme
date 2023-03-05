@@ -47,6 +47,7 @@ function handleLogin() {
     } else {
 
       const token = await loginRequest(loginBody)
+      
       return token
 
     }

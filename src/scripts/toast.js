@@ -13,13 +13,13 @@ export const toast = (message, color) => {
     body.appendChild(container)
   
     setTimeout(() => {
-    container.classList.add('toast__remove')
-  }, 3000)
+      container.classList.add('toast__remove')
+    }, 2000)
 
   
     setTimeout(() => {
-    body.removeChild(container)
-  }, 4990)
+      body.removeChild(container)
+    }, 3990)
 
   }
 
@@ -54,3 +54,36 @@ export const toastLogout = (username, color) => {
 
 }
 
+export const toastAccountSucess = () => {
+
+  const body = document.querySelector('body')
+  const container = document.createElement('div')
+  const img = document.createElement('img')
+  const text = document.createElement('p')
+  const link = document.createElement('a')
+
+  container.classList.add('toastAccount__container')
+  container.style.backgroundColor = '#FCFEFF'
+
+  img.src = '../assets/create-account-sucess.svg'
+
+  text.innerText = 'Agora você pode acessar os conteúdos utilizando seu usuário e senha na página de login:'
+
+  link.innerText = 'Acessar página de login'
+  link.
+
+  container.appendChild(img)
+  container.appendChild(text)
+  text.appendChild(link)
+
+  body.appendChild(container)
+
+  setTimeout(() => {
+    container.classList.add('toast__remove')
+  }, 3000)
+
+  setTimeout(() => {
+    body.removeChild(container)
+  }, 4990)
+
+}

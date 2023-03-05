@@ -1,26 +1,34 @@
 import { getAllPosts, getUserProfile, newPostRequest, updatePost, deletePost } from './requests.js'
 import { toastLogout } from './toast.js'
 import { renderModal, renderModalPost } from './modal.js'
+
 let userId = ''
+
 function authentication() {
+
     const token = localStorage.getItem('@petinfo:token')
   
     if(!token) {
+
       window.location.replace('../../index.html')
+
     }
+
 }
-  
 
 function createPost(){
+
     const btnNewPost = document.querySelector('.create__post')
 
     btnNewPost.addEventListener('click', () =>{
 
         const newPost = true
         renderModal(newPost)
+
         handleNewPost()
 
     })
+
 }
 
 function logout({username}){
@@ -164,9 +172,13 @@ function createCards({id, title, content, createdAt, user}){
 function handleNewPost() {
     const inputs = document.querySelectorAll(".post__input")
     const button = document.querySelector(".btn__publish")
+    
     const modalController = document.querySelector(".newPost__dialog")
     const postBody = {}
     let count = 0
+
+
+
     
     button.addEventListener("click", async (event) => {
         event.preventDefault()
@@ -196,6 +208,8 @@ function handleNewPost() {
             })
 
         }
+
+
     })
 }
 
@@ -254,14 +268,44 @@ export function handlePostEdit(){
 export function handlePostDelete(){
 
     const deleteButtons = document.querySelectorAll('.delete__btn')
-    const modalController = document.querySelector(".newPost__dialog")
+    const modalController = document.querySelector(".toastDelete__container")
+    const toastCloseBtn = document.querySelector('.toastClose__btn')
+    const btnCancel = document.querySelector('.btn__cancel')
+    const deletePostBtn = document.querySelector('.deletePost__btn')
     
     deleteButtons.forEach(deleteButton => {
         deleteButton.addEventListener('click', async (event) => {
 
             event.preventDefault()
-            const postDeleted =  await deletePost(event.target.dataset.postId)
-            renderCards()
+            const deletedId = event.target.dataset.postId
+            modalController.classList.remove('hidden')
+            btnCancel.addEventListener('click', (e) => {
+
+                e.preventDefault()
+                
+                modalController.classList.add('hidden')
+
+            })
+
+            toastCloseBtn.addEventListener('click', (e) => {
+
+                e.preventDefault()
+                
+                modalController.classList.add('hidden')
+                
+            })
+
+            deletePostBtn.addEventListener('click', async (e) => {
+
+                e.preventDefault()
+              
+                const postDeleted =  await deletePost(deletedId)
+
+                modalController.classList.add('hidden')
+                
+                renderCards()
+
+            })
 
         })
     })

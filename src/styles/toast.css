@@ -1,3 +1,4 @@
+
 .toast__container {
   
   position: absolute;
@@ -7,15 +8,13 @@
   justify-self: center;
   padding: 2rem;
   border-radius: 4px;
-  animation: toastIn 2s linear;
+  animation: toastIn 1s linear;
   z-index:0;
   
 }
-  
-.toast__container > p {
 
-  color: var(--grey-100);
-  
+.toast__container > p {
+  color: var(--grey-9);
 }
   
 .toast__add {
@@ -24,12 +23,93 @@
   transform: translateX(0);
 
 }
-  
+
 .toast__remove {
 
-  animation: toastOut 2s linear;
+  animation: toastOut 1s linear;
 
 }
+
+/* ******************************************** */
+.toastAccount__container, .toastDelete__container {
+  
+  position: absolute;
+  top: 77vh;
+  right: calc(width - 98% / 2);
+  width: 98%;
+  max-width: 350px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-self: center;
+  padding: 1rem;
+  background-color: rgba(246, 239, 239, 0.929);
+  border-radius: 4px;
+  border: 1px solid var(--grey-6);
+  box-shadow: 2px 2px;
+  animation: toastIn 3s linear;
+  z-index:0;
+  
+}
+
+.toastDelete__container {
+
+  width: 320px;
+  top: 20vh;
+  height: 220px;
+
+}
+
+.deletePost__btn {
+
+  width: 150px;
+  height: 38px;
+  background-color: var(--alert1);
+  color: var(--grey9);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 1s;
+
+}
+
+.deletePost__btn:hover {
+
+  background-color: var(--grey9);
+  color: var(--alert1);
+
+}
+
+
+.toastAccount__img {
+  
+  width: 90%;
+  
+}
+
+.toastAccount__p {
+
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--grey-1);
+  
+}
+
+.toastAccount__a {
+
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+  
+}
+
+.toastAccount__add{
+
+  /* opacity: 0;
+  transform: translateX(0); */
+
+}
+
 
 .toastLogout__container {
 
@@ -40,6 +120,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-width: 318px;
   background-color: var(--grey7);
   padding: .5rem;
   animation: toastIn 2s linear;
@@ -66,4 +147,51 @@
 
   font-weight: 600;
   
+}
+
+@media(min-width: 425px){
+
+  .toastAccount__container, .toastDelete__container{
+
+    right: 10%;
+
+  }
+
+}
+
+@media(min-width: 425px){
+
+  .toastAccount__container, .toastDelete__container{
+
+    right: 10%;
+
+  }
+
+}
+
+@media(width: 768px){
+
+  .toastAccount__container, .toastDelete__container{
+
+     right: 28%; 
+
+  }
+
+}
+
+
+@media(min-width: 769px){
+
+  .toastAccount__container{
+    
+    background-color: var(--grey-7);
+    top: 77vh;
+    right: 7vw;
+
+  }
+
+  .toastDelete__container{
+    background-color: rgba(246, 239, 239, 0.929);
+  }
+
 }

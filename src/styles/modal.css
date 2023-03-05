@@ -9,7 +9,7 @@ dialog{
     flex-direction: column;
 }
 
-.modal__header{
+.modal__header, .toast__header{
 
     display: flex;
     flex-direction: row;
@@ -27,7 +27,7 @@ dialog{
 
 }
 
-.modalClose__btn{
+.modalClose__btn, .toastClose__btn {
 
     Width: 38px;
     Height: 32px;
@@ -71,7 +71,7 @@ dialog{
     gap: 1rem;
 }
 
-.btn__cancel, .btn__publish, .btn__save{
+.btn__postCancel, .btn__cancel, .btn__publish, .btn__save{
 
     border-radius: 4px;
     cursor: pointer;
@@ -79,25 +79,32 @@ dialog{
 
 }
 
-.btn__cancel{
+.btn__cancel, .btn__postCancel{
 
     width: 105px;
     height: 38px;
     font-size: 1rem;
     font-weight: 500;
     color: var(--grey5);
+    transition: 1s;
 
 }
 
-.btn__cancel:hover{
-    color: var(--grey5);
+.btn__cancel:hover, .btn__postCancel:hover{
+
+    color: var(--grey9);
+    background-color: var(--grey5);
+    border-color: var(--grey5);
+
 }
 
 .btn__publish, .btn__save{
+
     width: 101px;
     height: 38px;
     background-color: var(--brand1);
     color: var(--grey9);
+
 }
 
 .btn__save{
@@ -107,4 +114,15 @@ dialog{
 }
 
 
-.btn__save:hover{}
+.btn__save:hover{
+
+    background-color: var(--grey9);
+    color: var(--brand1);
+
+}
+
+.toastDelete__title{
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--grey1);
+}
